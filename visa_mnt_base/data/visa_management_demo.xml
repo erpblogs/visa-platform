@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Visa Types -->
+        <record id="visa_type_work" model="visa.type">
+            <field name="name">Work Visa</field>
+            <field name="code">WORK</field>
+        </record>
+        <record id="visa_type_student" model="visa.type">
+            <field name="name">Student Visa</field>
+            <field name="code">STUDY</field>
+        </record>
+        <record id="visa_type_visitor" model="visa.type">
+            <field name="name">Visitor Visa</field>
+            <field name="code">VISIT</field>
+        </record>
+
+        <!-- Visa Categories -->
+        <record id="visa_category_skilled_migrant" model="visa.category">
+            <field name="name">Skilled Migrant</field>
+            <field name="description">For skilled workers who want to work and live in New Zealand permanently.</field>
+            <field name="visa_type_id" ref="visa_type_work"/>
+            <field name="checklist_survey_id" ref="survey_partner_temporary_visa_holder"/>
+            <field name="fee">3220</field>
+        </record>
+        <record id="visa_category_partner_work" model="visa.category">
+            <field name="name">Partner of a Worker</field>
+            <field name="description">For partners of work visa holders or New Zealand citizens/residents.</field>
+            <field name="visa_type_id" ref="visa_type_work"/>
+            <field name="checklist_survey_id" ref="survey_partner_temporary_visa_holder"/>
+            <field name="fee">570</field>
+        </record>
+        <record id="visa_category_student" model="visa.category">
+            <field name="name">Student Visa</field>
+            <field name="description">For international students to study in New Zealand.</field>
+            <field name="visa_type_id" ref="visa_type_student"/>
+            <field name="fee">330</field>
+        </record>
+
+        <!-- Visa Application Stages -->
+        <record id="visa_stage_draft" model="visa.stage">
+            <field name="name">Draft</field>
+            <field name="sequence">10</field>
+        </record>
+        <record id="visa_stage_submitted" model="visa.stage">
+            <field name="name">Submitted</field>
+            <field name="sequence">20</field>
+        </record>
+        <record id="visa_stage_under_review" model="visa.stage">
+            <field name="name">Under Review</field>
+            <field name="sequence">30</field>
+        </record>
+        <record id="visa_stage_additional_info" model="visa.stage">
+            <field name="name">Additional Information Required</field>
+            <field name="sequence">40</field>
+        </record>
+        <record id="visa_stage_approved" model="visa.stage">
+            <field name="name">Approved</field>
+            <field name="sequence">50</field>
+            <field name="is_closed">True</field>
+        </record>
+        <record id="visa_stage_rejected" model="visa.stage">
+            <field name="name">Rejected</field>
+            <field name="sequence">60</field>
+            <field name="is_closed">True</field>
+        </record>
+
+        <!-- Demo Partners (Applicants) -->
+        <record id="partner_john_doe" model="res.partner">
+            <field name="name">John Doe</field>
+            <field name="email">john.doe@example.com</field>
+            <field name="phone">+64 21 123 4567</field>
+            <field name="country_id" ref="base.nz"/>
+        </record>
+        <record id="partner_jane_smith" model="res.partner">
+            <field name="name">Jane Smith</field>
+            <field name="email">jane.smith@example.com</field>
+            <field name="phone">+64 21 987 6543</field>
+            <field name="country_id" ref="base.us"/>
+        </record>
+
+        <!-- Visa Applications -->
+        <record id="visa_application_john_skilled" model="visa.application">
+            <field name="name">VISA-2023-001</field>
+            <field name="partner_id" ref="partner_john_doe"/>
+            <field name="category_id" ref="visa_category_skilled_migrant"/>
+            <field name="stage_id" ref="visa_stage_under_review"/>
+            <field name="state">under_review</field>
+            <field name="checklist_survey_id" ref="survey_partner_temporary_visa_holder"/>
+        </record>
+        <record id="visa_application_jane_partner" model="visa.application">
+            <field name="name">VISA-2023-002</field>
+            <field name="partner_id" ref="partner_jane_smith"/>
+            <field name="category_id" ref="visa_category_partner_work"/>
+            <field name="stage_id" ref="visa_stage_submitted"/>
+            <field name="state">submitted</field>
+            <field name="checklist_survey_id" ref="survey_partner_temporary_visa_holder"/>
+        </record>
+
+        <!-- Visas -->
+        <record id="visa_john_work" model="visa.visa">
+            <field name="name">NZ-WORK-2023-001</field>
+            <field name="partner_id" ref="partner_john_doe"/>
+            <field name="visa_type_id" ref="visa_type_work"/>
+            <field name="issue_date" eval="(DateTime.today() - relativedelta(months=6)).strftime('%Y-%m-%d')"/>
+            <field name="expiry_date" eval="(DateTime.today() + relativedelta(years=2, months=6)).strftime('%Y-%m-%d')"/>
+            <field name="country_id" ref="base.nz"/>
+            <field name="status">valid</field>
+        </record>
+    </data>
+</odoo>

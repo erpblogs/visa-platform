@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+         <!-- Main menu item for Customers -->
+        <menuitem id="menu_visa_customer_root"
+                  name="Customers"
+                  parent="menu_visa_root"
+                  sequence="20"/>
+        <!-- Menu item for Customer List -->
+        <menuitem id="menu_visa_customer_list"
+                  name="Visa Applicants"
+                  parent="menu_visa_customer_root"
+                  action="action_visa_customer_list"
+                  sequence="10"/>
+                  
+        <!-- Menu item for Visa Applications by Customer -->
+        <menuitem id="menu_visa_applications_by_customer"
+                  name="Visa Applications"
+                  parent="menu_visa_customer_root"
+                  action="action_visa_applications_by_customer"
+                  sequence="30"/>
+</odoo>

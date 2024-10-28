@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_visa_root" name="Visa Management" sequence="10" web_icon="visa_mnt_base,static/description/icon.png"/>
+
+    <menuitem id="menu_visa_applications" name="Applications" parent="menu_visa_root" sequence="10"/>
+    <menuitem id="menu_visa_application" name="Visa Applications" parent="menu_visa_applications" action="action_visa_application" sequence="10"/>
+
+    <menuitem id="menu_visa_configuration" name="Configuration" parent="menu_visa_root" sequence="100"/>
+    <menuitem id="menu_visa_category" name="Visa Categories" parent="menu_visa_configuration" action="action_visa_category" sequence="10"/>
+    <menuitem id="menu_visa_stage" name="Application Stages" parent="menu_visa_configuration" action="action_visa_stage" sequence="20"/>
+
+    <menuitem id="menu_visa_reporting" name="Reporting" parent="menu_visa_root" sequence="90"/>
+    <!-- Add reporting menu items here when you create reports -->
+</odoo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="survey_user_input_rule_portal" model="ir.rule">
+        <field name="name">Portal User: Own Survey Inputs Only</field>
+        <field name="model_id" ref="survey.model_survey_user_input"/>
+        <field name="domain_force">[('partner_id', '=', user.partner_id.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
+    </record>
+</odoo>

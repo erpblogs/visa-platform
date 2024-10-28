@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_visa_affidavit">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Visa Application Affidavit</h2>
+                        <p>Application Number: <span t-field="o.name"/></p>
+                        <p>Applicant: <span t-field="o.partner_id"/></p>
+                        <p>Visa Category: <span t-field="o.category_id"/></p>
+                        <!-- Add more fields and formatting as needed -->
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_visa_affidavit" model="ir.actions.report">
+        <field name="name">Visa Affidavit</field>
+        <field name="model">visa.application</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">visa_management.report_visa_affidavit</field>
+        <field name="report_file">visa_management.report_visa_affidavit</field>
+        <field name="binding_model_id" ref="model_visa_application"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

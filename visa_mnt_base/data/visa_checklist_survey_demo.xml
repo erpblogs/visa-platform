@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Create Survey for Partner of Temporary Visa Holder Checklist -->
+        <record id="survey_partner_temporary_visa_holder" model="survey.survey">
+            <field name="title">Checklist for Partner of Temporary Visa Holder</field>
+            <!-- <field name="state">open</field> -->
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="access_mode">public</field>
+            <field name="users_can_go_back" eval="True"/>
+            <field name="questions_layout">page_per_question</field>
+            <field name="description" type="html">
+            <p>This checklist is for partners of temporary visa holders applying for a visa to New Zealand.</p>
+            </field>
+        </record>
+
+
+        <!-- Section: Personal Documents -->
+        <record id="section_personal_documents" model="survey.question">
+            <field name="survey_id" ref="survey_partner_temporary_visa_holder"/>
+            <field name="title">Personal Documents</field>
+            <field name="sequence">1</field>
+            <field name="is_page" eval="True"/>
+            <field name="description">Please confirm you have the following personal documents:</field>
+        </record>
+
+        <record id="question_passport_photo" model="survey.question">
+            <field name="survey_id" ref="survey_partner_temporary_visa_holder"/>
+            <field name="title">Passport Photo</field>
+            <field name="question_type">simple_choice</field>
+            <field name="constr_mandatory" eval="True"/>
+            <field name="sequence">2</field>
+            <field name="page_id" ref="section_personal_documents"/>
+            <field name="description">Color photo taken within the last 6 months. Can be taken with a phone in JPG format.</field>
+        </record>
+        <record id="answer_passport_photo_yes" model="survey.question.answer">
+            <field name="question_id" ref="question_passport_photo"/>
+            <field name="value">Yes, I have a valid passport photo</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="answer_passport_photo_no" model="survey.question.answer">
+            <field name="question_id" ref="question_passport_photo"/>
+            <field name="value">No, I still need to get a passport photo</field>
+            <field name="sequence">2</field>
+        </record>
+
+        <record id="question_passport" model="survey.question">
+            <field name="survey_id" ref="survey_partner_temporary_visa_holder"/>
+            <field name="title">Passport</field>
+            <field name="question_type">simple_choice</field>
+            <field name="constr_mandatory" eval="True"/>
+            <field name="sequence">3</field>
+            <field name="page_id" ref="section_personal_documents"/>
+            <field name="description">Original passport valid for at least 1 year. Color scan required.</field>
+        </record>
+        <record id="answer_passport_yes" model="survey.question.answer">
+            <field name="question_id" ref="question_passport"/>
+            <field name="value">Yes, I have a valid passport and color scan</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="answer_passport_no" model="survey.question.answer">
+            <field name="question_id" ref="question_passport"/>
+            <field name="value">No, I need to renew my passport or get a color scan</field>
+            <field name="sequence">2</field>
+        </record>
+
+        <record id="question_household_registration" model="survey.question">
+            <field name="survey_id" ref="survey_partner_temporary_visa_holder"/>
+            <field name="title">Household Registration</field>
+            <field name="question_type">simple_choice</field>
+            <field name="constr_mandatory" eval="True"/>
+            <field name="sequence">4</field>
+            <field name="page_id" ref="section_personal_documents"/>
+            <field name="description">Certified copy of all pages in the household registration book or temporary residence card for foreigners.</field>
+        </record>
+        <record id="answer_household_registration_yes" model="survey.question.answer">
+            <field name="question_id" ref="question_household_registration"/>
+            <field name="value">Yes, I have a certified copy of my household registration</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="answer_household_registration_no" model="survey.question.answer">
+            <field name="question_id" ref="question_household_registration"/>
+            <field name="value">No, I still need to get a certified copy</field>
+            <field name="sequence">2</field>
+        </record>
+
+        <record id="question_id_card" model="survey.question">
+            <field name="survey_id" ref="survey_partner_temporary_visa_holder"/>
+            <field name="title">National ID Card</field>
+            <field name="question_type">simple_choice</field>
+            <field name="constr_mandatory" eval="True"/>
+            <field name="sequence">5</field>
+            <field name="page_id" ref="section_personal_documents"/>
+            <field name="description">Copy of national ID card.</field>
+        </record>
+        <record id="answer_id_card_yes" model="survey.question.answer">
+            <field name="question_id" ref="question_id_card"/>
+            <field name="value">Yes, I have a copy of my national ID card</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="answer_id_card_no" model="survey.question.answer">
+            <field name="question_id" ref="question_id_card"/>
+            <field name="value">No, I still need to get a copy of my ID card</field>
+            <field name="sequence">2</field>
+        </record>
+
+        <record id="question_marriage_certificate" model="survey.question">
+            <field name="survey_id" ref="survey_partner_temporary_visa_holder"/>
+            <field name="title">Marriage Certificate</field>
+            <field name="question_type">simple_choice</field>
+            <field name="constr_mandatory" eval="True"/>
+            <field name="sequence">6</field>
+            <field name="page_id" ref="section_personal_documents"/>
+            <field name="description">Certified copy of marriage certificate (if applicable).</field>
+        </record>
+        <record id="answer_marriage_certificate_yes" model="survey.question.answer">
+            <field name="question_id" ref="question_marriage_certificate"/>
+            <field name="value">Yes, I have a certified copy of my marriage certificate</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="answer_marriage_certificate_no" model="survey.question.answer">
+            <field name="question_id" ref="question_marriage_certificate"/>
+            <field name="value">No, I'm not married or need to get a certified copy</field>
+            <field name="sequence">2</field>
+        </record>
+
+        <!-- Section: Financial Evidence -->
+        <record id="section_financial_evidence" model="survey.question">
+            <field name="survey_id" ref="survey_partner_temporary_visa_holder"/>
+            <field name="title">Financial Evidence</field>
+            <field name="sequence">10</field>
+            <field name="is_page" eval="True"/>
+            <field name="description">Please confirm you have the following financial documents:</field>
+        </record>
+
+        <record id="question_financial_sponsorship" model="survey.question">
+            <field name="survey_id" ref="survey_partner_temporary_visa_holder"/>
+            <field name="title">Financial Sponsorship Form</field>
+            <field name="question_type">simple_choice</field>
+            <field name="constr_mandatory" eval="True"/>
+            <field name="sequence">11</field>
+            <field name="page_id" ref="section_financial_evidence"/>
+            <field name="description">Form INZ1025 for customers whose spouse is a New Zealand citizen or permanent resident.</field>
+        </record>
+        <record id="answer_financial_sponsorship_yes" model="survey.question.answer">
+            <field name="question_id" ref="question_financial_sponsorship"/>
+            <field name="value">Yes, I have completed Form INZ1025</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="answer_financial_sponsorship_no" model="survey.question.answer">
+            <field name="question_id" ref="question_financial_sponsorship"/>
+            <field name="value">No, this form is not applicable to me</field>
+            <field name="sequence">2</field>
+        </record>
+
+        <record id="question_sponsorship_form" model="survey.question">
+            <field name="survey_id" ref="survey_partner_temporary_visa_holder"/>
+            <field name="title">Sponsorship Form</field>
+            <field name="question_type">simple_choice</field>
+            <field name="constr_mandatory" eval="True"/>
+            <field name="sequence">12</field>
+            <field name="page_id" ref="section_financial_evidence"/>
+            <field name="description">Form INZ1146 completed by your partner who is sponsoring your visa application.</field>
+        </record>
+        <record id="answer_sponsorship_form_yes" model="survey.question.answer">
+            <field name="question_id" ref="question_sponsorship_form"/>
+            <field name="value">Yes, I have Form INZ1146 completed by my partner</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="answer_sponsorship_form_no" model="survey.question.answer">
+            <field name="question_id" ref="question_sponsorship_form"/>
+            <field name="value">No, I still need to get this form completed</field>
+            <field name="sequence">2</field>
+        </record>
+
+        <record id="question_financial_evidence" model="survey.question">
+            <field name="survey_id" ref="survey_partner_temporary_visa_holder"/>
+            <field name="title">Financial Evidence for Living in New Zealand</field>
+            <field name="question_type">simple_choice</field>
+            <field name="constr_mandatory" eval="True"/>
+            <field name="sequence">13</field>
+            <field name="page_id" ref="section_financial_evidence"/>
+            <field name="description">Evidence of at least NZD 1000 per month for living expenses, or NZD 400 per month if accommodation has been prepaid.</field>
+        </record>
+        <record id="answer_financial_evidence_yes" model="survey.question.answer">
+            <field name="question_id" ref="question_financial_evidence"/>
+            <field name="value">Yes, I have evidence of sufficient funds</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="answer_financial_evidence_no" model="survey.question.answer">
+            <field name="question_id" ref="question_financial_evidence"/>
+            <field name="value">No, I still need to gather this evidence</field>
+            <field name="sequence">2</field>
+        </record>
+
+        <!-- Section: Relationship Evidence -->
+        <record id="section_relationship_evidence" model="survey.question">
+            <field name="survey_id" ref="survey_partner_temporary_visa_holder"/>
+            <field name="title">Relationship Evidence</field>
+            <field name="sequence">20</field>
+            <field name="is_page" eval="True"/>
+            <field name="description">Please confirm you have the following relationship evidence:</field>
+        </record>
+
+        <record id="question_relationship_letter" model="survey.question">
+            <field name="survey_id" ref="survey_partner_temporary_visa_holder"/>
+            <field name="title">Relationship Letter</field>
+            <field name="question_type">text_box</field>
+            <field name="constr_mandatory" eval="True"/>
+            <field name="sequence">21</field>
+            <field name="page_id" ref="section_relationship_evidence"/>
+            <field name="description">Please write a letter explaining the background of your relationship (e.g., when it started, how it developed, future plans, etc.)</field>
+        </record>
+
+        <record id="question_relationship_evidence" model="survey.question">
+            <field name="survey_id" ref="survey_partner_temporary_visa_holder"/>
+            <field name="title">Evidence of Living Together</field>
+            <field name="question_type">multiple_choice</field>
+            <field name="constr_mandatory" eval="True"/>
+            <field name="sequence">22</field>
+            <field name="page_id" ref="section_relationship_evidence"/>
+            <field name="description">Please select all the types of evidence you have to prove you are living together in a genuine and stable relationship:</field>
+        </record>
+        <record id="answer_relationship_evidence_1" model="survey.question.answer">
+            <field name="question_id" ref="question_relationship_evidence"/>
+            <field name="value">Joint tenancy agreement or mortgage</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="answer_relationship_evidence_2" model="survey.question.answer">
+            <field name="question_id" ref="question_relationship_evidence"/>
+            <field name="value">Joint bank account statements</field>
+            <field name="sequence">2</field>
+        </record>
+        <record id="answer_relationship_evidence_3" model="survey.question.answer">
+            <field name="question_id" ref="question_relationship_evidence"/>
+            <field name="value">Correspondence addressed to both partners at the same address</field>
+            <field name="sequence">3</field>
+        </record>
+        <record id="answer_relationship_evidence_4" model="survey.question.answer">
+            <field name="question_id" ref="question_relationship_evidence"/>
+            <field name="value">Photographs of you and your partner together</field>
+            <field name="sequence">4</field>
+        </record>
+        <record id="answer_relationship_evidence_5" model="survey.question.answer">
+            <field name="question_id" ref="question_relationship_evidence"/>
+            <field name="value">Evidence of shared financial responsibilities</field>
+            <field name="sequence">5</field>
+        </record>
+
+        <!-- Section: Health and Character -->
+        <record id="section_health_character" model="survey.question">
+            <field name="survey_id" ref="survey_partner_temporary_visa_holder"/>
+            <field name="title">Health and Character</field>
+            <field name="sequence">30</field>
+            <field name="is_page" eval="True"/>
+            <field name="description">Please confirm you have the following health and character documents:</field>
+        </record>
+
+        <record id="question_medical_certificate" model="survey.question">
+            <field name="survey_id" ref="survey_partner_temporary_visa_holder"/>
+            <field name="title">Medical Certificate</field>
+            <field name="question_type">simple_choice</field>
+            <field name="constr_mandatory" eval="True"/>
+            <field name="sequence">31</field>
+            <field name="page_id" ref="section_health_character"/>
+            <field name="description">Medical certificate and chest X-ray (if staying more than 6 months but less than 1 year for Visitor Visa, or for Work Visa).</field>
+        </record>
+        <record id="answer_medical_certificate_yes" model="survey.question.answer">
+            <field name="question_id" ref="question_medical_certificate"/>
+            <field name="value">Yes, I have the required medical certificate and chest X-ray</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="answer_medical_certificate_no" model="survey.question.answer">
+            <field name="question_id" ref="question_medical_certificate"/>
+            <field name="value">No, I still need to obtain these medical documents</field>
+            <field name="sequence">2</field>
+        </record>
+        <record id="answer_medical_certificate_na" model="survey.question.answer">
+            <field name="question_id" ref="question_medical_certificate"/>
+            <field name="value">Not applicable to my visa application</field>
+            <field name="sequence">3</field>
+        </record>
+
+        <record id="question_police_certificate" model="survey.question">
+            <field name="survey_id" ref="survey_partner_temporary_visa_holder"/>
+            <field name="title">Police Certificate</field>
+            <field name="question_type">simple_choice</field>
+            <field name="constr_mandatory" eval="True"/>
+            <field name="sequence">32</field>
+            <field name="page_id" ref="section_health_character"/>
+            <field name="description">Police certificates from your country of citizenship and any country you have lived in for 5 years or more since the age of 17.</field>
+        </record>
+        <record id="answer_police_certificate_yes" model="survey.question.answer">
+            <field name="question_id" ref="question_police_certificate"/>
+            <field name="value">Yes, I have all required police certificates</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="answer_police_certificate_no" model="survey.question.answer">
+            <field name="question_id" ref="question_police_certificate"/>
+            <field name="value">No, I still need to obtain some or all police certificates</field>
+            <field name="sequence">2</field>
+        </record>
+
+        <!-- Section: Additional Information -->
+        <record id="section_additional_info" model="survey.question">
+            <field name="survey_id" ref="survey_partner_temporary_visa_holder"/>
+            <field name="title">Additional Information</field>
+            <field name="sequence">40</field>
+            <field name="is_page" eval="True"/>
+            <field name="description">Please provide any additional information that may be relevant to your application:</field>
+        </record>
+
+        <record id="question_additional_info" model="survey.question">
+            <field name="survey_id" ref="survey_partner_temporary_visa_holder"/>
+            <field name="title">Additional Information</field>
+            <field name="question_type">text_box</field>
+            <field name="constr_mandatory" eval="False"/>
+            <field name="sequence">41</field>
+            <field name="page_id" ref="section_additional_info"/>
+            <field name="description">If you have any additional information or special circumstances that you believe are relevant to your application, please provide details here.</field>
+        </record>
+
+        <!-- Section: Declaration -->
+        <record id="section_declaration" model="survey.question">
+            <field name="survey_id" ref="survey_partner_temporary_visa_holder"/>
+            <field name="title">Declaration</field>
+            <field name="sequence">50</field>
+            <field name="is_page" eval="True"/>
+            <field name="description">Please read and confirm the following declaration:</field>
+        </record>
+
+        <record id="question_declaration" model="survey.question">
+            <field name="survey_id" ref="survey_partner_temporary_visa_holder"/>
+            <field name="title">Declaration</field>
+            <field name="question_type">simple_choice</field>
+            <field name="constr_mandatory" eval="True"/>
+            <field name="sequence">51</field>
+            <field name="page_id" ref="section_declaration"/>
+            <field name="description">I declare that the information I have given in this checklist is true and correct to the best of my knowledge. I understand that if any false or misleading information is given, or any material fact is suppressed, my application may be refused, or I may become liable for deportation if my visa has been granted based on incorrect information.</field>
+        </record>
+        <record id="answer_declaration_yes" model="survey.question.answer">
+            <field name="question_id" ref="question_declaration"/>
+            <field name="value">I confirm that I have read and agree with this declaration</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="answer_declaration_no" model="survey.question.answer">
+            <field name="question_id" ref="question_declaration"/>
+            <field name="value">I do not agree with this declaration</field>
+            <field name="sequence">2</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View for Visa Category -->
+    <record id="view_visa_category_tree" model="ir.ui.view">
+        <field name="name">visa.category.tree</field>
+        <field name="model">visa.category</field>
+        <field name="arch" type="xml">
+            <tree string="Visa Categories">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="country_id"/>
+                <field name="fee"/>
+                <field name="checklist_survey_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for Visa Category (assuming it doesn't exist yet) -->
+    <record id="view_visa_category_form" model="ir.ui.view">
+        <field name="name">visa.category.form</field>
+        <field name="model">visa.category</field>
+        <field name="arch" type="xml">
+            <form string="Visa Category">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="country_id"/>
+                        <field name="fee"/>
+                        <field name="checklist_survey_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for Visa Category -->
+    <record id="action_visa_category" model="ir.actions.act_window">
+        <field name="name">Visa Categories</field>
+        <field name="res_model">visa.category</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new visa category
+            </p>
+            <p>
+                Define different types of visas and their requirements.
+            </p>
+        </field>
+    </record>
+</odoo>

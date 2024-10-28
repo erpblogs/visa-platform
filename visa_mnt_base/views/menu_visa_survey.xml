@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Visa Template Main Menu -->
+    <menuitem id="menu_visa_template_root"
+              name="Visa Templates"
+              parent="menu_visa_root"
+              sequence="30"/>
+
+    <menuitem id="menu_visa_template_form"
+              name="Visa Templates"
+              action="action_visa_template_form"
+              parent="menu_visa_template_root"
+              sequence="10"/>
+
+    <menuitem id="menu_visa_application_response"
+              name="Visa Application Responses"
+              action="action_visa_application_response"
+              parent="menu_visa_template_root"
+              sequence="20"/>
+
+    <menuitem id="menu_visa_application_answer_line"
+              name="Visa Application Answer Lines"
+              action="action_visa_application_answer_line"
+              parent="menu_visa_template_root"
+              sequence="30"/>
+
+    <!-- Add Visa Template Configuration to existing Configuration menu -->
+    <!-- <menuitem id="menu_visa_template_configuration"
+              name="Visa Template Configuration"
+              parent="menu_visa_configuration"
+              sequence="30"/>
+
+    <menuitem id="menu_visa_question_types"
+              name="Visa Question Types"
+              action="survey.action_survey_question_type"
+              parent="menu_visa_template_configuration"
+              sequence="10"/>
+
+    <menuitem id="menu_visa_label_types"
+              name="Visa Label Types"
+              action="survey.action_survey_label_type"
+              parent="menu_visa_template_configuration"
+              sequence="20"/> -->
+</odoo>
