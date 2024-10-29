@@ -7,8 +7,8 @@
         processing, and tracking.
     """,
     'category': 'Services/Visa',
-    'author': 'Your Name',
-    'website': 'https://www.yourwebsite.com',
+    'author': 'Quang Trinh',
+    'website': 'https://www.erpblogs.com',
     'depends': [
         'base',
         'mail',
@@ -24,19 +24,20 @@
         'views/visa_stage_views.xml',
         'views/visa_partner_views.xml',
         'views/visa_survey_views.xml',
-        'reports/visa_reports.xml',
-        'reports/visa_report_templates.xml',
+        'views/visa_type_views.xml',
         'views/visa_menu.xml',
         'views/visa_menu_survey.xml',
         'views/visa_menu_partner.xml',
+        # 'reports/visa_reports.xml',
+        # 'reports/visa_report_templates.xml',
     ],
     'demo': [
-        'demo/visa_demo.xml',
+        # 'demo/visa_demo.xml',
     ],
     'assets': {
         'web.assets_backend': [
-            'visa_management/static/src/scss/visa_styles.scss',
-            'visa_management/static/src/js/visa_widgets.js',
+            # 'visa_management/static/src/scss/visa_styles.scss',
+            # 'visa_management/static/src/js/visa_widgets.js',
         ],
     },
     'application': True,

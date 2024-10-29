@@ -26,9 +26,11 @@ class VisaApplication(models.Model):
         ('2', 'High'),
         ('3', 'Very High')
     ], string='Priority', default='1')
+    notes = fields.Text(string='Notes')
     checklist_survey_id = fields.Many2one('survey.survey', string='Checklist Survey')
     checklist_user_input_id = fields.Many2one('survey.user_input', string='Checklist Responses')
     invoice_id = fields.Many2one('account.move', string='Invoice')
+    active = fields.Boolean(default=True)
 
     @api.model
     def _read_group_stage_ids(self, stages, domain, order):
