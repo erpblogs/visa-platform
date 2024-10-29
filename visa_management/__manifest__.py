@@ -32,7 +32,7 @@
         # 'reports/visa_report_templates.xml',
     ],
     'demo': [
-        # 'demo/visa_demo.xml',
+        'demo/visa_demo.xml',
     ],
     'assets': {
         'web.assets_backend': [
