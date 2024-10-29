@@ -1,7 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_visa_application_user,visa.application.user,model_visa_application,visa_mnt_base.group_visa_user,1,1,1,0
-access_visa_application_manager,visa.application.manager,model_visa_application,visa_mnt_base.group_visa_manager,1,1,1,1
-access_visa_category_user,visa.category.user,model_visa_category,visa_mnt_base.group_visa_user,1,0,0,0
-access_visa_category_manager,visa.category.manager,model_visa_category,visa_mnt_base.group_visa_manager,1,1,1,1
-access_visa_stage_user,visa.stage.user,model_visa_stage,visa_mnt_base.group_visa_user,1,0,0,0
-access_visa_stage_manager,visa.stage.manager,model_visa_stage,visa_mnt_base.group_visa_manager,1,1,1,1

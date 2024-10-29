@@ -1,0 +1,28 @@
+<odoo>
+    <category id="visa_management_category" name="Visa Management" sequence="10"/>
+    
+    <record id="group_visa_admin" model="res.groups">
+        <field name="name">Visa Admin</field>
+        <field name="category_id" ref="visa_management_category"/>
+    </record>
+    
+    <record id="group_company_admin" model="res.groups">
+        <field name="name">Company Admin</field>
+        <field name="category_id" ref="visa_management_category"/>
+    </record>
+    
+    <record id="group_sales" model="res.groups">
+        <field name="name">Sales</field>
+        <field name="category_id" ref="visa_management_category"/>
+    </record>
+    
+    <record id="group_assistant_advisor" model="res.groups">
+        <field name="name">Assistant Advisor</field>
+        <field name="category_id" ref="visa_management_category"/>
+    </record>
+    
+    <record id="group_advisor" model="res.groups">
+        <field name="name">Advisor</field>
+        <field name="category_id" ref="visa_management_category"/>
+    </record>
+</odoo> 

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main Menu -->
+    <menuitem id="menu_visa_root" 
+              name="Visa Management" 
+              web_icon="visa_management,static/description/icon.png"
+              sequence="10"/>
+
+    <!-- Applications Menu -->
+    <menuitem id="menu_visa_applications"
+              name="Applications"
+              parent="menu_visa_root"
+              sequence="10"/>
+    
+    <menuitem id="menu_visa_application"
+              name="Visa Applications"
+              parent="menu_visa_applications"
+              action="action_visa_application"
+              sequence="10"/>
+
+    <!-- Customers Menu -->
+    <menuitem id="menu_visa_customers"
+              name="Customers"
+              parent="menu_visa_root"
+              sequence="20"/>
+
+    <!-- Configuration Menu -->
+    <menuitem id="menu_visa_configuration"
+              name="Configuration"
+              parent="menu_visa_root"
+              sequence="100"/>
+
+    <!-- Configuration Sub-menus -->
+    <menuitem id="menu_visa_category"
+              name="Visa Categories"
+              parent="menu_visa_configuration"
+              action="action_visa_category"
+              sequence="10"/>
+
+    <menuitem id="menu_visa_stage"
+              name="Application Stages"
+              parent="menu_visa_configuration"
+              action="action_visa_stage"
+              sequence="20"/>
+
+    <menuitem id="menu_visa_type"
+              name="Visa Types"
+              parent="menu_visa_configuration"
+              action="action_visa_type"
+              sequence="30"/>
+
+    <!-- Reporting Menu -->
+    <menuitem id="menu_visa_reporting"
+              name="Reporting"
+              parent="menu_visa_root"
+              sequence="90"/>
+</odoo>
