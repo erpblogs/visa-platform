@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="product_template_visa_service_form_view" model="ir.ui.view">
+        <field name="name">product.template.visa.service.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Visa Service Details">
+                    <group>
+                        <group>
+                            <field name="estimated_duration"/>
+                            <field name="validity_period"/>
+                            <field name="entry_type"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Requirements" name="requirements">
+                            <field name="service_requirement_ids">
+                                <tree editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="requirement_type"/>
+                                    <field name="is_mandatory"/>
+                                    <field name="description"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Process Steps" name="process_steps">
+                            <field name="service_process_ids">
+                                <tree editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="duration"/>
+                                    <field name="responsible_type"/>
+                                    <field name="description"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_visa_service" model="ir.actions.act_window">
+        <field name="name">Visa Services</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{
+            'default_type': 'service',
+            'default_sale_ok': True
+        }</field>
+        <field name="domain">[('type', '=', 'service')]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first visa service
+            </p>
+            <p>
+                Define visa services with their requirements and process steps.
+            </p>
+        </field>
+    </record>
+</odoo> 

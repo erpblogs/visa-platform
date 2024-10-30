@@ -1,0 +1,90 @@
+HỆ THỐNG VISA PLATFORM
+
+A. TỔNG QUAN HỆ THỐNG
+Hệ thống được chia thành 2 phần chính:
+1. Main System (Portal System)
+2. Vendor System (Immigration Agency System)
+
+B. MAIN SYSTEM (PORTAL SYSTEM)
+1. Quản lý Người dùng và Xác thực
+   - Quản lý tài khoản người dùng (Khách hàng, Admin, Vendor)
+   - Hệ thống SSO cho phép đăng nhập một lần trên cả hai hệ thống
+   - Phân quyền và bảo mật theo vai trò
+
+2. Quản lý Vendor
+   - Thông tin cơ bản của vendor
+   - Dịch vụ vendor cung cấp
+   - Hợp đồng với vendor
+   - Theo dõi hoạt động của vendor
+
+3. Quản lý Dịch vụ
+   - Danh mục dịch vụ
+   - Điều kiện và yêu cầu dịch vụ
+   - Quy trình xử lý
+   - Biểu phí dịch vụ
+
+4. Quản lý Lead & Opportunity
+   - Tiếp nhận yêu cầu từ khách hàng
+   - Chuyển đổi lead thành opportunity
+   - Phân công xử lý
+   - Theo dõi tiến độ
+
+5. Quản lý Hợp đồng
+   - Tạo hợp đồng từ opportunity
+   - Quản lý trạng thái hợp đồng
+   - Thanh toán và gia hạn
+   - Báo cáo và thống kê
+
+C. VENDOR SYSTEM (IMMIGRATION AGENCY SYSTEM)
+1. Quản lý Người dùng
+   - Quản lý nhân viên vendor
+   - Phân quyền nội bộ
+   - Tích hợp SSO với Main System
+
+2. Quản lý Dịch vụ
+   - Chi tiết dịch vụ cung cấp
+   - Quy trình xử lý
+   - Yêu cầu hồ sơ
+   - Biểu phí
+
+3. Quản lý Hồ sơ
+   - Template hồ sơ
+   - Checklist theo loại visa
+   - Trạng thái hồ sơ
+   - Tài liệu yêu cầu
+
+4. Quản lý Applicant
+   - Thông tin applicant
+   - Lịch sử giao dịch
+   - Hồ sơ đã nộp
+   - Trạng thái xử lý
+
+5. Quản lý Giao tiếp
+   - Chat nội bộ
+   - Trao đổi với khách hàng
+   - Thông báo và nhắc nhở
+   - Lịch sử trao đổi
+
+D. TÍCH HỢP HỆ THỐNG
+1. API Integration
+   - REST API cho giao tiếp hai chiều
+   - Webhook cho cập nhật real-time
+   - SSO cho xác thực người dùng
+
+2. Đồng bộ Dữ liệu
+   - Đồng bộ thông tin khách hàng
+   - Đồng bộ trạng thái hồ sơ
+   - Đồng bộ tài liệu
+   - Đồng bộ thanh toán
+
+3. Bảo mật
+   - OAuth2 authentication
+   - JWT cho SSO
+   - HTTPS encryption
+   - IP whitelist
+
+4. Monitoring
+   - System health check
+   - API monitoring
+   - Error logging
+   - Performance metrics

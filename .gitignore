@@ -39,3 +39,8 @@ setup/win32/static/postgresql*.exe
 /man/
 /share/
 /src/
+function_list.xls
+Mô tả quy trình - Visa.docx
+phân tích yêu cầu.md
+requirement.md
+visa_platform_funtion.txt
