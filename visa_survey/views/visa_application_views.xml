@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_visa_application_form_survey" model="ir.ui.view">
+        <field name="name">visa.application.form.survey</field>
+        <field name="model">visa.application</field>
+        <field name="inherit_id" ref="visa_management.view_visa_application_form"/>
+        <field name="arch" type="xml">
+            <header position="inside">
+                <button name="action_start_checklist" 
+                        type="object" 
+                        class="oe_stat_button" 
+                        icon="fa-tasks"
+                        invisible="not checklist_survey_id">
+                    <div class="o_stat_info">
+                        <span class="o_stat_text">Start/Continue</span>
+                        <span class="o_stat_text">Checklist</span>
+                    </div>
+                </button>
+                <button name="action_view_checklist_results" 
+                        type="object" 
+                        class="oe_stat_button" 
+                        icon="fa-list-alt"
+                        invisible="not checklist_user_input_id">
+                    <div class="o_stat_info">
+                        <span class="o_stat_text">View</span>
+                        <span class="o_stat_text">Results</span>
+                    </div>
+                </button>
+            </header>
+            <notebook position="inside">
+                <page string="Checklist" name="checklist" invisible="not checklist_survey_id">
+                    <group>
+                        <group>
+                            <field name="checklist_survey_id" readonly="1"/>
+                            <field name="checklist_deadline"/>
+                            <field name="checklist_state"/>
+                            <field name="checklist_score" widget="percentage"/>
+                        </group>
+                        <group>
+                            <field name="checklist_user_input_id" readonly="1"/>
+                            <button name="action_reset_checklist" 
+                                    string="Reset Checklist" 
+                                    type="object" 
+                                    class="btn btn-secondary"
+                                    invisible="not checklist_user_input_id"/>
+                        </group>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo> 

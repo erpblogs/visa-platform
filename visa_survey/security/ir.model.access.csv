@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_survey_survey_visa_admin,survey.survey.visa.admin,survey.model_survey_survey,visa_management.group_visa_admin,1,1,1,1
+access_survey_survey_visa_company,survey.survey.visa.company,survey.model_survey_survey,visa_management.group_company_admin,1,1,1,0
+access_survey_user_input_visa_admin,survey.user_input.visa.admin,survey.model_survey_user_input,visa_management.group_visa_admin,1,1,1,1 

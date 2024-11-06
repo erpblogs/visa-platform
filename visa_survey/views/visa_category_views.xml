@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_visa_category_form_survey" model="ir.ui.view">
+        <field name="name">visa.category.form.survey</field>
+        <field name="model">visa.category</field>
+        <field name="inherit_id" ref="visa_management.view_visa_category_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group" position="after">
+                <group string="Checklist Settings">
+                    <field name="checklist_survey_id"/>
+                    <field name="checklist_required"/>
+                    <field name="min_score_required" widget="percentage" 
+                           invisible="not checklist_required"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo> 

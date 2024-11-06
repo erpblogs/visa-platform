@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_project_task_visa_admin,project.task.visa.admin,project.model_project_task,visa_management.group_visa_admin,1,1,1,1
+access_project_task_visa_company,project.task.visa.company,project.model_project_task,visa_management.group_company_admin,1,1,1,0
+access_project_task_visa_advisor,project.task.visa.advisor,project.model_project_task,visa_management.group_advisor,1,1,1,0 
