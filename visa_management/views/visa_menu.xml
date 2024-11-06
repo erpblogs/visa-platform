@@ -18,12 +18,6 @@
               action="action_visa_application"
               sequence="10"/>
 
-    <!-- Customers Menu -->
-    <menuitem id="menu_visa_customers"
-              name="Customers"
-              parent="menu_visa_root"
-              sequence="20"/>
-
     <!-- Configuration Menu -->
     <menuitem id="menu_visa_configuration"
               name="Configuration"
@@ -48,10 +42,4 @@
               parent="menu_visa_configuration"
               action="action_visa_type"
               sequence="30"/>
-
-    <!-- Reporting Menu -->
-    <menuitem id="menu_visa_reporting"
-              name="Reporting"
-              parent="menu_visa_root"
-              sequence="90"/>
 </odoo>
