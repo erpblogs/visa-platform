@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View for Visa Type -->
+    <record id="view_visa_type_tree" model="ir.ui.view">
+        <field name="name">visa.type.tree</field>
+        <field name="model">visa.type</field>
+        <field name="arch" type="xml">
+            <tree string="Visa Types">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="duration"/>
+                <field name="is_active"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for Visa Type -->
+    <record id="view_visa_type_form" model="ir.ui.view">
+        <field name="name">visa.type.form</field>
+        <field name="model">visa.type</field>
+        <field name="arch" type="xml">
+            <form string="Visa Type">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="is_active" widget="boolean_button" options="{'terminology': 'archive'}"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="e.g. Tourist Visa"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code" placeholder="e.g. TV-001"/>
+                            <field name="duration"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description" placeholder="Enter detailed description here..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View for Visa Type -->
+    <record id="view_visa_type_search" model="ir.ui.view">
+        <field name="name">visa.type.search</field>
+        <field name="model">visa.type</field>
+        <field name="arch" type="xml">
+            <search string="Search Visa Types">
+                <field name="name"/>
+                <field name="code"/>
+                <separator/>
+                <filter string="Active" name="active" domain="[('is_active', '=', True)]"/>
+                <filter string="Archived" name="inactive" domain="[('is_active', '=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Duration" name="group_by_duration" context="{'group_by': 'duration'}"/>
+                    <filter string="Status" name="group_by_active" context="{'group_by': 'is_active'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action for Visa Type -->
+    <record id="action_visa_type" model="ir.actions.act_window">
+        <field name="name">Visa Types</field>
+        <field name="res_model">visa.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_visa_type_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first visa type
+            </p>
+            <p>
+                Define different types of visas with their specific requirements and durations.
+            </p>
+        </field>
+    </record>
+</odoo> 

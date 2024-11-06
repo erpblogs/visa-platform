@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_contract_contract_visa_admin,contract.contract.visa.admin,contract.model_contract_contract,visa_management.group_visa_admin,1,1,1,1
+access_contract_contract_visa_company,contract.contract.visa.company,contract.model_contract_contract,visa_management.group_company_admin,1,1,1,0
+access_contract_contract_visa_sales,contract.contract.visa.sales,contract.model_contract_contract,visa_management.group_sales,1,1,0,0 

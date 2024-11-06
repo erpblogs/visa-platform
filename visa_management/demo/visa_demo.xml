@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Demo Visa Types -->
+    <record id="visa_type_tourist" model="visa.type">
+        <field name="name">Tourist Visa</field>
+        <field name="code">TV-001</field>
+        <field name="duration">90</field>
+        <field name="description">Short-term visa for tourism purposes</field>
+    </record>
+
+    <record id="visa_type_business" model="visa.type">
+        <field name="name">Business Visa</field>
+        <field name="code">BV-001</field>
+        <field name="duration">180</field>
+        <field name="description">Visa for business activities and meetings</field>
+    </record>
+
+    <record id="visa_type_student" model="visa.type">
+        <field name="name">Student Visa</field>
+        <field name="code">SV-001</field>
+        <field name="duration">365</field>
+        <field name="description">Long-term visa for study purposes</field>
+    </record>
+
+    <!-- Demo Visa Categories -->
+    <record id="visa_category_tourist_single" model="visa.category">
+        <field name="name">Tourist Single Entry</field>
+        <field name="description">Single entry tourist visa valid for 3 months</field>
+        <field name="country_id" ref="base.us"/>
+        <field name="fee">100</field>
+        <field name="visa_type_id" ref="visa_type_tourist"/>
+    </record>
+
+    <record id="visa_category_business_multiple" model="visa.category">
+        <field name="name">Business Multiple Entry</field>
+        <field name="description">Multiple entry business visa valid for 6 months</field>
+        <field name="country_id" ref="base.us"/>
+        <field name="fee">200</field>
+        <field name="visa_type_id" ref="visa_type_business"/>
+    </record>
+
+    <!-- Demo Visa Stages -->
+    <record id="visa_stage_new" model="visa.stage">
+        <field name="name">New</field>
+        <field name="sequence">10</field>
+        <field name="description">New application received</field>
+    </record>
+
+    <record id="visa_stage_document_check" model="visa.stage">
+        <field name="name">Document Check</field>
+        <field name="sequence">20</field>
+        <field name="description">Checking submitted documents</field>
+    </record>
+
+    <record id="visa_stage_interview" model="visa.stage">
+        <field name="name">Interview</field>
+        <field name="sequence">30</field>
+        <field name="description">Interview scheduled/completed</field>
+    </record>
+
+    <record id="visa_stage_processing" model="visa.stage">
+        <field name="name">Processing</field>
+        <field name="sequence">40</field>
+        <field name="description">Application under processing</field>
+    </record>
+
+    <record id="visa_stage_decision" model="visa.stage">
+        <field name="name">Decision</field>
+        <field name="sequence">50</field>
+        <field name="description">Final decision made</field>
+        <field name="fold">True</field>
+        <field name="is_closed">True</field>
+    </record>
+
+    <!-- Demo Partners (Applicants) -->
+    <record id="visa_partner_demo_1" model="res.partner">
+        <field name="name">John Smith</field>
+        <field name="email">john.smith@example.com</field>
+        <field name="phone">+1234567890</field>
+        <field name="passport_number">AB123456</field>
+        <field name="passport_expiry_date" eval="(DateTime.now() + relativedelta(years=5)).strftime('%Y-%m-%d')"/>
+        <field name="nationality" ref="base.uk"/>
+    </record>
+
+    <record id="visa_partner_demo_2" model="res.partner">
+        <field name="name">Maria Garcia</field>
+        <field name="email">maria.garcia@example.com</field>
+        <field name="phone">+1234567891</field>
+        <field name="passport_number">CD789012</field>
+        <field name="passport_expiry_date" eval="(DateTime.now() + relativedelta(years=4)).strftime('%Y-%m-%d')"/>
+        <field name="nationality" ref="base.es"/>
+    </record>
+
+    <!-- Demo Visa Applications -->
+    <record id="visa_application_demo_1" model="visa.application">
+        <field name="partner_id" ref="visa_partner_demo_1"/>
+        <field name="category_id" ref="visa_category_tourist_single"/>
+        <field name="stage_id" ref="visa_stage_new"/>
+        <field name="state">draft</field>
+        <field name="priority">1</field>
+        <field name="notes">Tourist visa application for summer vacation</field>
+    </record>
+
+    <record id="visa_application_demo_2" model="visa.application">
+        <field name="partner_id" ref="visa_partner_demo_2"/>
+        <field name="category_id" ref="visa_category_business_multiple"/>
+        <field name="stage_id" ref="visa_stage_document_check"/>
+        <field name="state">submitted</field>
+        <field name="priority">2</field>
+        <field name="notes">Business visa application for international conference</field>
+        <field name="date_submitted" eval="DateTime.now().strftime('%Y-%m-%d')"/>
+    </record>
+</odoo> 

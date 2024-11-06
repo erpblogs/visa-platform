@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="visa_type_form_view_contract" model="ir.ui.view">
+        <field name="name">visa.type.form.contract</field>
+        <field name="model">visa.type</field>
+        <field name="inherit_id" ref="visa_management.view_visa_type_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Contract Settings">
+                    <group>
+                        <field name="contract_template_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo> 

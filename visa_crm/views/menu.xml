@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- CRM Menu Items -->
+    <menuitem id="menu_visa_crm"
+              name="CRM"
+              parent="visa_management.menu_visa_root"
+              sequence="15"/>
+
+    <menuitem id="menu_visa_leads"
+              name="Leads"
+              parent="menu_visa_crm"
+              action="crm.crm_lead_all_leads"
+              sequence="1"/>
+
+    <menuitem id="menu_visa_opportunities"
+              name="Opportunities"
+              parent="menu_visa_crm"
+              action="crm.crm_lead_opportunities"
+              sequence="2"/>
+</odoo> 

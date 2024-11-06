@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Contract Menu Items -->
+    <menuitem id="menu_visa_contract"
+              name="Contracts"
+              parent="visa_management.menu_visa_root"
+              sequence="35"/>
+
+    <menuitem id="menu_visa_contracts"
+              name="Contracts"
+              parent="menu_visa_contract"
+              action="contract.contract_contract_menu_action"
+              sequence="1"/>
+
+    <menuitem id="menu_visa_contract_templates"
+              name="Contract Templates"
+              parent="menu_visa_contract"
+              action="contract.contract_template_menu_action"
+              sequence="2"/>
+</odoo> 

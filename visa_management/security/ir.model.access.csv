@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_visa_application_user,visa.application.user,model_visa_application,group_visa_admin,1,1,1,1
+access_visa_category_admin,visa.category.admin,model_visa_category,group_visa_admin,1,1,1,1
+access_visa_stage_admin,visa.stage.admin,model_visa_stage,group_visa_admin,1,1,1,1
+access_visa_type_admin,visa.type.admin,model_visa_type,group_visa_admin,1,1,1,1
+access_visa_visa_admin,visa.visa.admin,model_visa_visa,group_visa_admin,1,1,1,1
+

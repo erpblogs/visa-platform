@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_visa_application" model="ir.actions.report">
+        <field name="name">Visa Application</field>
+        <field name="model">visa.application</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">visa_management.report_visa_application</field>
+        <field name="report_file">visa_management.report_visa_application</field>
+        <field name="binding_model_id" ref="model_visa_application"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo> 

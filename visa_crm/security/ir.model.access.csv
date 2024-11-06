@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_crm_lead_visa_admin,crm.lead.visa.admin,crm.model_crm_lead,visa_management.group_visa_admin,1,1,1,1
+access_crm_lead_visa_company,crm.lead.visa.company,crm.model_crm_lead,visa_management.group_company_admin,1,1,1,0
+access_crm_lead_visa_sales,crm.lead.visa.sales,crm.model_crm_lead,visa_management.group_sales,1,1,1,0 
