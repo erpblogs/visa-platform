@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Simple Contract Template -->
+    <template id="simple_contract_template">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <h2 class="text-center">Contract Agreement</h2>
+                <div class="row mt32 mb32">
+                    <div class="col-6">
+                        <strong>Contract Reference:</strong>
+                        <span t-field="doc.code"/>
+                        <br/>
+                        <strong>Date:</strong>
+                        <span t-field="doc.date_start"/>
+                    </div>
+                    <div class="col-6">
+                        <strong>Customer:</strong>
+                        <div t-field="doc.partner_id" 
+                             t-options='{"widget": "contact", "fields": ["name", "address", "phone"], "no_marker": True}'/>
+                    </div>
+                </div>
+                
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th class="text-right">Quantity</th>
+                            <th class="text-right">Unit Price</th>
+                            <th class="text-right">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="doc.contract_line_ids" t-as="line">
+                            <td><span t-field="line.name"/></td>
+                            <td class="text-right"><span t-field="line.quantity"/></td>
+                            <td class="text-right"><span t-field="line.price_unit"/></td>
+                            <td class="text-right"><span t-field="line.price_subtotal"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <!-- Detailed Contract Template -->
+    <template id="detailed_contract_template">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <h2 class="text-center">Detailed Contract Agreement</h2>
+                <!-- Contract Header -->
+                <div class="row mt32 mb32">
+                    <div class="col-6">
+                        <strong>Contract Details:</strong><br/>
+                        <strong>Reference:</strong> <span t-field="doc.code"/><br/>
+                        <strong>Start Date:</strong> <span t-field="doc.date_start"/><br/>
+                        <strong>End Date:</strong> <span t-field="doc.date_end"/><br/>
+                    </div>
+                    <div class="col-6">
+                        <strong>Customer Information:</strong>
+                        <div t-field="doc.partner_id" 
+                             t-options='{"widget": "contact", "fields": ["name", "address", "phone", "email"], "no_marker": True}'/>
+                    </div>
+                </div>
+
+                <!-- Contract Lines -->
+                <h4>Contract Items</h4>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Description</th>
+                            <th class="text-right">Quantity</th>
+                            <th class="text-right">Unit Price</th>
+                            <th class="text-right">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="doc.contract_line_ids" t-as="line">
+                            <td><span t-field="line.name"/></td>
+                            <td><span t-field="line.name"/></td>
+                            <td class="text-right"><span t-field="line.quantity"/></td>
+                            <td class="text-right">
+                                <span t-field="line.price_unit"
+                                      t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                            </td>
+                            <td class="text-right">
+                                <span t-field="line.price_subtotal"
+                                      t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Terms and Conditions -->
+                <div class="row mt32">
+                    <div class="col-12">
+                        <h4>Terms and Conditions</h4>
+                        <p t-field="doc.note"/>
+                    </div>
+                </div>
+
+                <!-- Signatures -->
+                <div class="row mt32">
+                    <div class="col-6">
+                        <h4>Company Signature</h4>
+                        <p>Date: _________________</p>
+                        <p>Signature: _________________</p>
+                    </div>
+                    <div class="col-6">
+                        <h4>Customer Signature</h4>
+                        <p>Date: _________________</p>
+                        <p>Signature: _________________</p>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Custom Template -->
+    <template id="custom_contract_template">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <t t-raw="doc.template_content"/>
+            </div>
+        </t>
+    </template>
+</odoo> 
