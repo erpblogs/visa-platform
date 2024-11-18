@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit Contract Template Form -->
+    <record id="contract_template_form_view_inherit" model="ir.ui.view">
+        <field name="name">contract.template.form.inherit</field>
+        <field name="model">contract.template</field>
+        <field name="inherit_id" ref="contract.contract_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='group_main_left']" position="after">
+                <group name="group_main_right">
+                    <field name="report_id" options="{'no_create': True}"/>
+                </group>
+            </xpath>
+            
+            <xpath expr="//form" position="inside">
+                <header>
+                    <button name="action_preview_template"  
+                            string="Preview Template" 
+                            type="object" 
+                            class="oe_highlight"/>
+                </header>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Contract Report Templates Tree View -->
+    <!-- <record id="view_contract_report_template_tree" model="ir.ui.view">
+        <field name="name">contract.report.template.tree</field>
+        <field name="model">ir.actions.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="report_name"/>
+                <field name="report_type"/>
+                <field name="binding_model_id"/>
+            </tree>
+        </field>
+    </record> -->
+
+    <!-- Contract Report Templates Form View -->
+    <!-- <record id="view_contract_report_template_form" model="ir.ui.view">
+        <field name="name">contract.report.template.form</field>
+        <field name="model">ir.actions.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="report_name"/>
+                            <field name="report_type"/>
+                            <field name="model"/>
+                            <field name="binding_model_id"/>
+                        </group>
+                        <group>
+                            <field name="report_file"/>
+                            <field name="print_report_name"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record> -->
+
+    <!-- Action for Contract Report Templates -->
+    <record id="action_contract_report_template" model="ir.actions.act_window">
+        <field name="name">Contract Report Templates</field>
+        <field name="res_model">ir.actions.report</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('model', '=', 'contract.contract')]</field>
+        <field name="context">{'default_model': 'contract.contract'}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No report templates found.
+            </p>
+            <p>
+                Create a new contract report template.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_contract_report_template"
+              name="Report Templates"
+              parent="contract.menu_config_contract"
+              action="action_contract_report_template"
+              sequence="20"/>
+</odoo> 

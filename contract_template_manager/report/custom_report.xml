@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="paperformat_contract_no_margin" model="report.paperformat">
+        <field name="name">A4 without borders</field>
+        <field name="default" eval="False" />
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">10</field>
+        <field name="margin_bottom">10</field>
+        <field name="margin_left">20</field>
+        <field name="margin_right">20</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">0</field>
+    </record>
+
+    <record id="action_report_maintenance_contract" model="ir.actions.report">
+        <field name="name">Maintenance Contract</field>
+        <field name="model">contract.contract</field> <!-- Replace with your actual model name -->
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">contract_template_manager.report_contract_maintenance</field>
+        <field name="report_file">contract_template_manager.report_contract_maintenance</field>
+        <field name="binding_model_id" ref="model_contract_contract"/> <!-- Replace with your actual model reference -->
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_contract_no_margin"/>
+    </record>
+</odoo>
